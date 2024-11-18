@@ -1,0 +1,47 @@
+{
+  "name": "my-campus",
+  "version": "0.1.0",
+  "bin": {
+    "my-campus": "bin/my-campus.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk",
+    "format": "prettier --check \"**/*.{ts,md}\"",
+    "format:fix": "prettier --write \"**/*.{ts,md}\"",
+    "lint": "eslint \"**/*.ts\" --max-warnings 0",
+    "lint:fix": "eslint \"**/*.ts\" --fix",
+    "prepare": "node .husky/install.mjs"
+  },
+  "lint-staged": {
+    "*.md": "npm run format",
+    "*.ts": [
+      "npm run lint",
+      "npm run format",
+      "npm run test -- --bail --findRelatedTests --passWithNoTests"
+    ]
+  },
+  "devDependencies": {
+    "@eslint/js": "9.14.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "22.7.9",
+    "aws-cdk": "2.167.1",
+    "eslint": "9.14.0",
+    "globals": "^15.12.0",
+    "husky": "^9.1.6",
+    "jest": "^29.7.0",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.6.3",
+    "typescript-eslint": "^8.14.0"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.167.1",
+    "constructs": "^10.0.0",
+    "source-map-support": "^0.5.21"
+  }
+}
